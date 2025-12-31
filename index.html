@@ -93,7 +93,12 @@
       background: #ff3b3b;
     }
 
-    input#gameInput {
+    .btn-activity {
+      background: #00c6ff;
+    }
+
+    input#gameInput,
+    input#activityInput {
       display: block;
       margin: 10px auto;
       padding: 10px;
@@ -136,7 +141,8 @@
 
     <div class="card">
       <h2>What I Am Doing</h2>
-      <p>what I am doing</p>
+      <input id="activityInput" type="text" placeholder="Enter what I’m doing here">
+      <p id="currentActivity">what I am doing</p>
     </div>
 
     <!-- ADMIN CONTROLS (ONLY YOU USE THESE) -->
@@ -147,6 +153,10 @@
 
       <button class="btn-offline" onclick="goOffline()">
         I’m Offline
+      </button>
+
+      <button class="btn-activity" onclick="updateActivity()">
+        I’m Doing
       </button>
     </div>
 
@@ -192,6 +202,21 @@
       status.classList.add("offline");
       status.innerHTML = "🔴 OFFLINE";
       gameText.innerText = "Nothing right now";
+    }
+
+    function updateActivity() {
+      const code = prompt('Enter code to set what you are doing:');
+      if (code !== '2419') {
+        alert('Incorrect code!');
+        return;
+      }
+      const activityInput = document.getElementById('activityInput');
+      const activityText = document.getElementById('currentActivity');
+      if (activityInput.value.trim() === '') {
+        activityText.innerText = 'what I am doing';
+      } else {
+        activityText.innerText = activityInput.value.trim();
+      }
     }
   </script>
 
