@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>My Gaming Hub</title>
+  <title>CHARLIPLAYZ GAMING HUB</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -97,18 +97,20 @@
       background: #ff3b3b;
     }
 
-    .admin input {
-      padding: 10px;
-      border-radius: 6px;
-      border: none;
-      margin: 5px;
-      font-size: 1rem;
-    }
-
     footer {
       text-align: center;
       padding: 20px;
       opacity: 0.6;
+    }
+
+    input#gameInput {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      width: 80%;
+      max-width: 400px;
     }
   </style>
 </head>
@@ -117,7 +119,7 @@
 
   <!-- NEON HEADER -->
   <div class="header">
-    <h1>MY GAMING HUB</h1>
+    <h1>CHARLIPLAYZ GAMING HUB</h1>
     <div id="status" class="status offline">
       🔴 OFFLINE
     </div>
@@ -128,6 +130,7 @@
 
     <div class="card">
       <h2>🎮 What I’m Playing</h2>
+      <input id="gameInput" type="text" placeholder="Enter current game here" />
       <p id="currentGame">Nothing right now</p>
     </div>
 
@@ -138,7 +141,6 @@
 
     <!-- ADMIN CONTROLS (ONLY YOU USE THESE) -->
     <div class="admin">
-      <input id="gameInput" type="text" placeholder="Enter current game" />
       <button class="btn-play" onclick="goLive()">
         I’m Playing
       </button>
@@ -158,12 +160,12 @@
     function goLive() {
       const status = document.getElementById("status");
       const gameText = document.getElementById("currentGame");
-      const gameInput = document.getElementById("gameInput");
+      const inputValue = document.getElementById("gameInput").value;
 
       status.classList.remove("offline");
       status.classList.add("playing");
       status.innerHTML = "🟢 PLAYING NOW";
-      gameText.innerText = gameInput.value || "Unknown game";
+      gameText.innerText = inputValue || "Playing something awesome!";
     }
 
     function goOffline() {
