@@ -123,23 +123,26 @@
         alert('Incorrect code!');
         return;
       }
-      const game = document.getElementById('gameInput').value || 'Nothing right now';
-      document.getElementById('currentGame').innerText = game;
+      const gameInput = document.getElementById('gameInput').value.trim();
       const status = document.getElementById('status');
+      const gameText = document.getElementById('currentGame');
       status.classList.remove('offline');
       status.classList.add('playing');
       status.innerHTML = '🟢 PLAYING NOW';
+      gameText.innerText = gameInput || 'Nothing right now';
     }
     function goOffline() {
-      const code = prompt('Enter code to go offline:');
-      if (code !== '2419') {
-        alert('Incorrect code!');
+      const pass = prompt('Enter password to go offline:');
+      if (pass !== '2419') {
+        alert('Incorrect password!');
         return;
       }
       const status = document.getElementById('status');
+      const gameText = document.getElementById('currentGame');
       status.classList.remove('playing');
       status.classList.add('offline');
       status.innerHTML = '🔴 OFFLINE';
+      gameText.innerText = 'Nothing right now';
     }
   </script>
 </body>
