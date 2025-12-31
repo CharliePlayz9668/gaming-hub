@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>CHARLIEPLAYZ GAMING HUB</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <style>
     body {
       margin: 0;
@@ -12,7 +11,6 @@
       background: #050507;
       color: #ffffff;
     }
-
     /* NEON HEADER */
     .header {
       padding: 30px;
@@ -20,7 +18,6 @@
       background: linear-gradient(90deg, #7f00ff, #00c6ff);
       box-shadow: 0 0 20px #7f00ff, 0 0 40px #00c6ff;
     }
-
     .header h1 {
       font-size: 2.8rem;
       margin: 0;
@@ -30,7 +27,6 @@
         0 0 10px #7f00ff,
         0 0 20px #7f00ff;
     }
-
     /* STATUS */
     .status {
       margin-top: 15px;
@@ -40,26 +36,22 @@
       border-radius: 25px;
       font-weight: bold;
     }
-
     .playing {
       background: #00ff99;
       color: #000;
       box-shadow: 0 0 15px #00ff99;
     }
-
     .offline {
       background: #ff3b3b;
       color: #000;
       box-shadow: 0 0 15px #ff3b3b;
     }
-
     /* CONTENT */
     .container {
       max-width: 1000px;
       margin: auto;
       padding: 40px 20px;
     }
-
     .card {
       background: #0d0d12;
       padding: 25px;
@@ -67,18 +59,15 @@
       box-shadow: 0 0 15px rgba(127,0,255,0.3);
       margin-bottom: 30px;
     }
-
     .card h2 {
       color: #9d7cff;
       margin-top: 0;
     }
-
-    /* ADMIN CONTROLS */
+    /* ADMIN BUTTONS */
     .admin {
       text-align: center;
       margin-top: 20px;
     }
-
     .admin button {
       padding: 12px 20px;
       margin: 10px;
@@ -88,21 +77,17 @@
       cursor: pointer;
       font-weight: bold;
     }
-
     .btn-play {
       background: #00ff99;
     }
-
     .btn-offline {
       background: #ff3b3b;
     }
-
     footer {
       text-align: center;
       padding: 20px;
       opacity: 0.6;
     }
-
     input#gameInput {
       display: block;
       margin: 10px auto;
@@ -114,9 +99,7 @@
     }
   </style>
 </head>
-
 <body>
-
   <!-- NEON HEADER -->
   <div class="header">
     <h1>CHARLIEPLAYZ GAMING HUB</h1>
@@ -124,44 +107,37 @@
       🔴 OFFLINE
     </div>
   </div>
-
   <!-- MAIN CONTENT -->
   <div class="container">
-
     <div class="card">
       <h2>🎮 What I’m Playing</h2>
-      <input id="gameInput" type="text" placeholder="Enter current game here" />
+      <input id="gameInput" type="text" placeholder="Enter current game here">
       <p id="currentGame">Nothing right now</p>
     </div>
-
     <div class="card">
       <h2>🕹️ Play My Game</h2>
       <p>Game coming soon… 👀</p>
     </div>
-
     <!-- ADMIN CONTROLS (ONLY YOU USE THESE) -->
     <div class="admin">
-      <button class="btn-play" onclick="goLive()">
-        I’m Playing
-      </button>
-
-      <button class="btn-offline" onclick="goOffline()">
-        I’m Offline
-      </button>
+      <button class="btn-play" onclick="goLive()">I’m Playing</button>
+      <button class="btn-offline" onclick="goOffline()">I’m Offline</button>
     </div>
-
   </div>
-
   <footer>
     © 2025 – Built for the community
   </footer>
-
   <script>
     function goLive() {
+      // prompt for code before updating
+      const code = prompt('Enter code to update the game:');
+      if (code !== '2419') {
+        alert('Incorrect code!');
+        return;
+      }
       const status = document.getElementById("status");
       const gameText = document.getElementById("currentGame");
       const inputValue = document.getElementById("gameInput").value;
-
       status.classList.remove("offline");
       status.classList.add("playing");
       status.innerHTML = "🟢 PLAYING NOW";
@@ -171,13 +147,11 @@
     function goOffline() {
       const status = document.getElementById("status");
       const gameText = document.getElementById("currentGame");
-
       status.classList.remove("playing");
       status.classList.add("offline");
       status.innerHTML = "🔴 OFFLINE";
       gameText.innerText = "Nothing right now";
     }
   </script>
-
 </body>
 </html>
