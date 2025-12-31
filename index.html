@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Gaming Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050507;
+      color: #ffffff;
+    }
+
+    /* NEON HEADER */
+    .header {
+      padding: 30px;
+      text-align: center;
+      background: linear-gradient(90deg, #7f00ff, #00c6ff);
+      box-shadow: 0 0 20px #7f00ff, 0 0 40px #00c6ff;
+    }
+
+    .header h1 {
+      font-size: 2.8rem;
+      margin: 0;
+      color: #fff;
+      text-shadow: 
+        0 0 5px #fff,
+        0 0 10px #7f00ff,
+        0 0 20px #7f00ff;
+    }
+
+    /* STATUS */
+    .status {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      display: inline-block;
+      border-radius: 25px;
+      font-weight: bold;
+    }
+
+    .playing {
+      background: #00ff99;
+      color: #000;
+      box-shadow: 0 0 15px #00ff99;
+    }
+
+    .offline {
+      background: #ff3b3b;
+      color: #000;
+      box-shadow: 0 0 15px #ff3b3b;
+    }
+
+    /* CONTENT */
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background: #0d0d12;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(127,0,255,0.3);
+      margin-bottom: 30px;
+    }
+
+    .card h2 {
+      color: #9d7cff;
+      margin-top: 0;
+    }
+
+    /* ADMIN BUTTONS */
+    .admin {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .admin button {
+      padding: 12px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn-play {
+      background: #00ff99;
+    }
+
+    .btn-offline {
+      background: #ff3b3b;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NEON HEADER -->
+  <div class="header">
+    <h1>MY GAMING HUB</h1>
+    <div id="status" class="status offline">
+      🔴 OFFLINE
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+
+    <div class="card">
+      <h2>🎮 What I’m Playing</h2>
+      <p id="currentGame">Nothing right now</p>
+    </div>
+
+    <div class="card">
+      <h2>🕹️ Play My Game</h2>
+      <p>Game coming soon… 👀</p>
+    </div>
+
+    <!-- ADMIN CONTROLS (ONLY YOU USE THESE) -->
+    <div class="admin">
+      <button class="btn-play" onclick="goLive('Elden Ring')">
+        I’m Playing
+      </button>
+
+      <button class="btn-offline" onclick="goOffline()">
+        I’m Offline
+      </button>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2025 – Built for the community
+  </footer>
+
+  <script>
+    function goLive(game) {
+      const status = document.getElementById("status");
+      const gameText = document.getElementById("currentGame");
+
+      status.classList.remove("offline");
+      status.classList.add("playing");
+      status.innerHTML = "🟢 PLAYING NOW";
+      gameText.innerText = game;
+    }
+
+    function goOffline() {
+      const status = document.getElementById("status");
+      const gameText = document.getElementById("currentGame");
+
+      status.classList.remove("playing");
+      status.classList.add("offline");
+      status.innerHTML = "🔴 OFFLINE";
+      gameText.innerText = "Nothing right now";
+    }
+  </script>
+
+</body>
+</html>
