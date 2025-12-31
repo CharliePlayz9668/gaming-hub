@@ -25,7 +25,7 @@
       font-size: 2.8rem;
       margin: 0;
       color: #fff;
-      text-shadow: 
+      text-shadow:
         0 0 5px #fff,
         0 0 10px #7f00ff,
         0 0 20px #7f00ff;
@@ -73,7 +73,7 @@
       margin-top: 0;
     }
 
-    /* ADMIN BUTTONS */
+    /* ADMIN CONTROLS */
     .admin {
       text-align: center;
       margin-top: 20px;
@@ -95,6 +95,14 @@
 
     .btn-offline {
       background: #ff3b3b;
+    }
+
+    .admin input {
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      margin: 5px;
+      font-size: 1rem;
     }
 
     footer {
@@ -130,7 +138,8 @@
 
     <!-- ADMIN CONTROLS (ONLY YOU USE THESE) -->
     <div class="admin">
-      <button class="btn-play" onclick="goLive('Elden Ring')">
+      <input id="gameInput" type="text" placeholder="Enter current game" />
+      <button class="btn-play" onclick="goLive()">
         I’m Playing
       </button>
 
@@ -146,14 +155,15 @@
   </footer>
 
   <script>
-    function goLive(game) {
+    function goLive() {
       const status = document.getElementById("status");
       const gameText = document.getElementById("currentGame");
+      const gameInput = document.getElementById("gameInput");
 
       status.classList.remove("offline");
       status.classList.add("playing");
       status.innerHTML = "🟢 PLAYING NOW";
-      gameText.innerText = game;
+      gameText.innerText = gameInput.value || "Unknown game";
     }
 
     function goOffline() {
