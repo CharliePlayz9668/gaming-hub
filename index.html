@@ -79,6 +79,9 @@
     .btn-offline {
       background: #ff3b3b;
     }
+    .btn-activity {
+      background: #00c6ff;
+    }
     input[type="text"] {
       width: 100%;
       padding: 10px;
@@ -108,9 +111,15 @@
       <h2>Add Me On Roblox</h2>
       <p>@Creppylarry</p>
     </div>
+    <div class="card">
+      <h2>What I Am Doing</h2>
+      <input type="text" id="activityInput" placeholder="Enter what you are doing">
+      <p id="currentActivity">what I am doing</p>
+    </div>
     <div class="admin">
       <button class="btn-play" onclick="goLive()">I'm Playing</button>
       <button class="btn-offline" onclick="goOffline()">I'm Offline</button>
+      <button class="btn-activity" onclick="updateActivity()">I'm Doing</button>
     </div>
   </div>
   <footer>
@@ -143,6 +152,16 @@
       status.classList.add('offline');
       status.innerHTML = '🔴 OFFLINE';
       gameText.innerText = 'Nothing right now';
+    }
+    function updateActivity() {
+      const pass = prompt('Enter password to update activity:');
+      if (pass !== '2419') {
+        alert('Incorrect password!');
+        return;
+      }
+      const activityInput = document.getElementById('activityInput').value.trim();
+      const activityText = document.getElementById('currentActivity');
+      activityText.innerText = activityInput || 'what I am doing';
     }
   </script>
 </body>
