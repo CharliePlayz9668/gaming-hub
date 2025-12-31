@@ -30,6 +30,7 @@
         0 0 20px #7f00ff;
     }
 
+    /* STATUS */
     .status {
       margin-top: 15px;
       font-size: 1.2rem;
@@ -51,6 +52,7 @@
       box-shadow: 0 0 15px #ff3b3b;
     }
 
+    /* CONTENT */
     .container {
       max-width: 1000px;
       margin: auto;
@@ -70,6 +72,7 @@
       margin-top: 0;
     }
 
+    /* ADMIN BUTTONS */
     .admin {
       text-align: center;
       margin-top: 20px;
@@ -93,19 +96,9 @@
       background: #ff3b3b;
     }
 
-    .btn-activity {
-      background: #00c6ff;
-    }
-
-    input#gameInput,
-    input#activityInput {
-      display: block;
-      margin: 10px auto;
-      padding: 10px;
-      border-radius: 5px;
-      border: none;
-      width: 80%;
-      max-width: 400px;
+    .btn-doing {
+      background: #7f00ff;
+      color: #fff;
     }
 
     footer {
@@ -130,7 +123,7 @@
 
     <div class="card">
       <h2>🎮 What I’m Playing</h2>
-      <input id="gameInput" type="text" placeholder="Enter current game here">
+      <input id="gameInput" type="text" placeholder="Enter current game here" style="padding:8px; width:100%; max-width:300px;" />
       <p id="currentGame">Nothing right now</p>
     </div>
 
@@ -141,7 +134,7 @@
 
     <div class="card">
       <h2>What I Am Doing</h2>
-      <input id="activityInput" type="text" placeholder="Enter what I’m doing here">
+      <input id="activityInput" type="text" placeholder="Enter what you are doing here" style="padding:8px; width:100%; max-width:300px;" />
       <p id="currentActivity">what I am doing</p>
     </div>
 
@@ -155,7 +148,7 @@
         I’m Offline
       </button>
 
-      <button class="btn-activity" onclick="updateActivity()">
+      <button class="btn-doing" onclick="updateActivity()">
         I’m Doing
       </button>
     </div>
@@ -173,7 +166,6 @@
         alert('Incorrect code!');
         return;
       }
-
       const status = document.getElementById("status");
       const gameText = document.getElementById("currentGame");
       const gameInput = document.getElementById("gameInput");
@@ -194,7 +186,6 @@
         alert('Incorrect password!');
         return;
       }
-
       const status = document.getElementById("status");
       const gameText = document.getElementById("currentGame");
 
