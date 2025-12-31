@@ -145,6 +145,12 @@
     }
 
     function goOffline() {
+      // prompt for password before going offline
+      const pass = prompt('Enter password to change status:');
+      if (pass !== '2419') {
+        alert('Incorrect password!');
+        return;
+      }
       const status = document.getElementById("status");
       const gameText = document.getElementById("currentGame");
       status.classList.remove("playing");
